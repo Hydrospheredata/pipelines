@@ -1,0 +1,6 @@
+numpy==1.18.3
+scikit-learn==0.23.2
+joblib==0.16.0
+hydrosdk==2.4.0rc1
+pandas==1.0.5
+s3fs==0.4.2

@@ -1,0 +1,32 @@
+name: 'Hydrosphere - Train Example'
+description: |
+  Component for training a sample model
+inputs:
+  - name: train_path
+    type: String
+    description: A path to the training data
+  - name: output_serving_path
+    type: String
+    description: A path, where to save serving files
+outputs:
+  - name: payload
+    type: JsonArray
+    description: A payload of the model to be included in the ModelVersion
+  - name: training_data
+    type: String
+    description: A processed training data for uploading to Hydrosphere
+  - name: contract
+    type: String
+    description: A contract of the model for uploading to Hydrosphere
+implementation:
+  container:
+    image: hydrosphere/hydrosphere-kfp-train-example:latest
+    command: ['python3']
+    args: [
+      src/train_model.py,
+      --train_path, {inputValue: train_path},
+      --output_serving_path, {inputValue: output_serving_path},
+      --output_train_path, {outputPath: training_data},
+      --output_payload_path, {outputPath: payload},
+      --output_contract_path, {outputPath: contract},
+    ]

@@ -1,0 +1,57 @@
+name: 'Hydrosphere - Model Release'
+description: |
+  Component for releasing a new model version to the Hydrosphere platform
+inputs:
+  - name: cluster
+    description: 'An HTTP endpoint of the Hydrosphere platform.'
+    type: String
+  - name: model_name
+    description: 'The name of the model to be released.'
+    type: String
+  - name: path
+    description: 'A path to the model root folder, where all model artifacts are stored. Not required for external models.'
+    default: ''
+    type: String
+  - name: payload
+    description: 'A payload of the model, listing all the artifacts to be uploaded in the root folder. Not required for external models.'
+    default: '[]'
+    type: JsonArray
+  - name: contract
+    description: 'A contract of the model, describing its inputs and outputs.'
+    type: String
+  - name: runtime
+    description: 'A runtime for the model to be used when serving predictions. Not required for external models.'
+    default: ''
+    type: String
+  - name: install_command
+    description: 'An install command to be executed on the model build phase. Sets up a runtime environment.'
+    default: ''
+    type: String
+  - name: training_data
+    description:  'A path to the training data to be uploaded during model release. Should be either a local path or an S3 path.'
+    default: ''
+    type: String
+  - name: metadata
+    description: 'An additional metadata for the model.'
+    default: '{}'
+    type: JsonObject 
+outputs:
+  - name: version
+    description: 'A version of the model release under the provided name.'
+implementation:
+  container:
+    image: hydrosphere/hydrosphere-kfp-components:latest
+    command: ['python3']
+    args: [
+      release_op.py,
+      --cluster, {inputValue: cluster},
+      --model_name, {inputValue: model_name},
+      --path, {inputValue: path},
+      --payload, {inputValue: payload},
+      --contract_path, {inputPath: contract},
+      --runtime, {inputValue: runtime},
+      --install_command, {inputValue: install_command},
+      --training_data, {inputValue: training_data},
+      --metadata, {inputValue: metadata},
+      --version_path, {outputPath: version}
+    ]

@@ -1,0 +1,32 @@
+name: 'Hydrosphere - Application Deployment'
+description: |
+  Component for releasing a new model version to the Hydrosphere platform
+inputs:
+  - name: cluster
+    description: 'An HTTP endpoint of the Hydrosphere platform.'
+    type: String
+  - name: application_name
+    description: 'The name of the application to be deployed.'
+    type: String
+  - name: model_name
+    description: 'The name of the model to be deployed.'
+    type: String
+  - name: model_version
+    description: 'The version of the model to be deployed.'
+    type: String
+  - name: metadata
+    description: 'An additional metadata for the application.'
+    default: '{}'
+    type: JsonObject
+implementation:
+  container:
+    image: hydrosphere/hydrosphere-kfp-components:latest
+    command: ['python3']
+    args: [
+      deploy_op.py,
+      --cluster, {inputValue: cluster},
+      --application_name, {inputValue: application_name},
+      --model_name, {inputValue: model_name},
+      --model_version, {inputValue: model_version},
+      --metadata, {inputValue: metadata}
+    ]
