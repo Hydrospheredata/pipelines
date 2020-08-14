@@ -31,18 +31,15 @@ None.
 
 * [Kubeflow pipelines SDK](https://www.kubeflow.org/docs/pipelines/sdk/install-sdk/)
 * [Hydrosphere Python SDK](https://hydrospheredata.github.io/hydro-serving-sdk/quickstart.html#installation)
-* [Kubeflow set-up](https://www.kubeflow.org/docs/aws/deploy/install-kubeflow/)
+* [Kubeflow set-up](https://www.kubeflow.org/docs/started/getting-started/)
 * [Hydrosphere set-up](https://hydrosphere.io/serving-docs/latest/install/index.html)
 
 # Samples
 
-## On its own
+[All Samples](https://github.com/kubeflow/pipelines/tree/master/samples/contrib/hydrosphere-samples/):
 
-TODO
-
-## Integrated into a pipeline
-
-TODO
+* [Simple Deployment Pipeline](https://github.com/kubeflow/pipelines/tree/master/samples/contrib/hydrosphere-samples/simple-deployment-pipeline)
 
 # Resources
 
+[Hydrosphere Github Repo](https://github.com/Hydrospheredata/hydro-serving)

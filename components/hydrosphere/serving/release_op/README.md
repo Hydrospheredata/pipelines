@@ -44,20 +44,15 @@ Notes:
 
 * [Kubeflow pipelines SDK](https://www.kubeflow.org/docs/pipelines/sdk/install-sdk/)
 * [Hydrosphere Python SDK](https://hydrospheredata.github.io/hydro-serving-sdk/quickstart.html#installation)
-* [Kubeflow set-up](https://www.kubeflow.org/docs/aws/deploy/install-kubeflow/)
+* [Kubeflow set-up](https://www.kubeflow.org/docs/started/getting-started/)
 * [Hydrosphere set-up](https://hydrosphere.io/serving-docs/latest/install/index.html)
 
 # Samples
 
-## On its own
+[All Samples](https://github.com/kubeflow/pipelines/tree/master/samples/contrib/hydrosphere-samples/):
 
-
-## Integrated into a pipeline
-
-MNIST Classification using K-Means pipeline:
-[Pipeline](https://github.com/kubeflow/pipelines/blob/master/samples/contrib/aws-samples/mnist-kmeans-sagemaker/mnist-classification-pipeline.py)
-|
-[Steps](https://github.com/kubeflow/pipelines/blob/master/samples/contrib/aws-samples/mnist-kmeans-sagemaker/README.md)
+* [Simple Deployment Pipeline](https://github.com/kubeflow/pipelines/tree/master/samples/contrib/hydrosphere-samples/simple-deployment-pipeline)
 
 # Resources
- TODO
+
+[Hydrosphere Github Repo](https://github.com/Hydrospheredata/hydro-serving)
